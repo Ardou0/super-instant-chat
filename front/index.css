@@ -1,0 +1,95 @@
+body {
+    background-color: #000;
+    /* Fond noir */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.grid-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-background::before,
+.grid-background::after,
+.glow-light::after,
+.glow-light::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 19px,
+            rgba(0, 255, 255, 0.2) 20px);
+    animation: rotateGrid 20s ease-in-out infinite alternate-reverse;
+}
+
+.grid-background::after,
+.glow-light::before {
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 19px,
+            rgba(0, 255, 255, 0.2) 20px);
+    animation: rotateGrid 20s linear infinite alternate;
+}
+
+@keyframes rotateGrid {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+.grid-background::before {
+    mix-blend-mode: screen;
+}
+
+.glow-light {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    box-shadow: 0 0 40px 20px #fff, 0 0 50px 25px #0ff;
+    transition: 2s ease-in-out;
+    animation: spin 8s linear infinite alternate;
+    overflow: hidden;
+    mix-blend-mode: screen;
+}
+
+.glow-light-loaded-up {
+    scale: 0.3;
+    bottom: 0%;
+    left: 0%;
+}
+
+@keyframes spin {
+    50% {
+        box-shadow: 0 0 40px 20px #fff, 0 0 200px 100px rgb(0, 255, 98);
+    }
+
+    100% {
+        box-shadow: 0 0 40px 20px #fff, 0 0 50px 25px #0ff;
+    }
+}

@@ -9,6 +9,12 @@ socket.addEventListener("message", (message) => {
 })
 
 function sendMessage(message) {
-    let data = JSON.stringify({"type": "message", "content": message});
+    let data = JSON.stringify({ "type": "message", "content": message });
     socket.send(data);
 }
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.querySelector(".glow-light").classList.add("glow-light-loaded-up");
+    }, 3000);
+})
