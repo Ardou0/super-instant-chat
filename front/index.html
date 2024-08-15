@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIC Project</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <script src="index.js "></script>
     <div class="grid-background">
         <div class="glow-light"></div>
     </div>
+    <section id="main-chat">
+        <div class="chat-container">
+            <div class="chat-header chat-component">
+                <div class="header-icon"></div>
+                <div class="header-title">CHAT</div>
+                <div class="header-icon"></div>
+            </div>
+
+            <div class="chat-window">
+                <div class="chat-messages"></div>
+            </div>
+
+            <div class="chat-options chat-component">
+                <div class="option-button">❤️</div>
+                <div class="option-button">⚙️</div>
+                <div class="option-button">📂</div>
+                <div class="option-button">🔒</div>
+                <div class="option-button">📡</div>
+                <div class="option-button">🚀</div>
+            </div>
+
+            <div class="chat-input chat-component">
+                <form id="message-form">
+                    <div class="input-icon">👾</div>
+                    <input id="message-input" type="text" placeholder="Type your message..." required/>
+                    <button class="send-button">SEND</button>
+                </form>
+            </div>
+
+            <div class="chat-emojis chat-component">
+                <div class="emoji">👾</div>
+                <div class="emoji">🤖</div>
+                <div class="emoji">👽</div>
+                <div class="emoji">💻</div>
+                <div class="emoji">🎮</div>
+                <div class="emoji">🚀</div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="index.js "></script>
 </body>
+
 </html>
