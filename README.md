@@ -4,6 +4,12 @@
 
 The SIC Chat Application is a retro-styled, WebSocket-based chat platform designed with a focus on simplicity, security, and user interactivity. The application provides a responsive user interface, where users can exchange messages in real-time, including the ability to send emojis and connect to various servers. The application also includes a filtering mechanism to prevent inappropriate content and a mechanism for automatically reconnecting users in case of connection issues.
 
+A unique feature of the SIC Chat Application is its visual indicator system, where the main cursor blinks green or red to signal the status of the connection. If the cursor blinks green, the connection is stable, but if it blinks red, there is an issue that needs attention.
+
+For the first connection through the client, the user must manually enter the initial server address; otherwise, they will not be able to interact with the application. This initial setup is crucial, as without connecting to a server, the user cannot send or receive messages.
+
+Moreover, beyond cloning the entire project repository, users who wish to run their own server can do so easily by launching the server ([see here](https://github.com/Ardou0/super-instant-chat?tab=readme-ov-file#start-the-server-only)) and connecting to it via any SIC Chat client from any URL. This flexibility allows users to set up their own chat environments quickly and connect through various instances of the client.
+
 ## Features
 
 - **Real-Time Communication**: Utilizes WebSocket for instant messaging between users.
@@ -73,6 +79,15 @@ This command will:
 - Terminate the WebSocket server.
 - Stop all services managed by Docker Compose.
 - Close the associated `screen` session.
+
+### Start the server ONLY
+
+In case if you only want to run the server, use :
+
+```bash
+cd server/
+npm start
+```
 
 ### Managing Servers
 
