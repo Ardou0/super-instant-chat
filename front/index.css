@@ -288,3 +288,117 @@ body {
     /* Retro font */
     line-height: 1.2;
 }
+
+/* NOTIFICATIONS */
+
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 300px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: #0ff;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+    animation: fadeInOut 5s ease-in-out;
+    text-transform: capitalize;
+}
+
+.notification-error {
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    #notification-container {
+        max-width: 90%;
+        right: 5%;
+        bottom: 5%;
+    }
+
+    .notification {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* CHOOSE SERVER */
+
+.server-selector-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.server-selector {
+    display: none;
+}
+
+.server-selector-active {
+    display: grid;
+    grid-template: "list list list list" "input input input btn" "export export clear clear";
+    animation: serverSelectorOpen 0.5s ease-in-out;
+}
+
+@keyframes serverSelectorOpen {
+    0% {
+        transform: translateX(-100%);
+    }
+}
+#choose-server-btn, #clear-server-list {
+    cursor: pointer;
+}
+
+#choose-server-btn:hover {
+    cursor: pointer;
+    background-color: #00ffcc;
+    color: black;
+}
+
+#choose-server-btn,
+#add-server-btn,
+#server-list,
+#add-server-input,
+#clear-server-list,
+#export-server-list {
+    margin-bottom: 5px;
+    background-color: #0d0d0d;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 5px;
+    font-size: 10px;
+}
+
+#add-server-btn {
+    grid-area: btn;
+}
+
+#add-server-input {
+    grid-area: input;
+}
+
+#server-list {
+    grid-area: list;
+}
+#export-server-list {
+    grid-area: export;
+}
+#clear-server-list {
+    grid-area: clear;
+}
