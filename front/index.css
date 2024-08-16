@@ -402,3 +402,7 @@ body {
 #clear-server-list {
     grid-area: clear;
 }
+
+.emojis-first-row {
+    margin-bottom: 10px;
+}
