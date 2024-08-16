@@ -1,0 +1,10 @@
+{
+    "port": 2096,
+    "censor": true,
+    "banwords" : [
+        "hitler"
+    ],
+    "errors" : {
+        "message": "violation of the rule regarding the content of messages"
+    }
+}
