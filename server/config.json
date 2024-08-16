@@ -1,10 +1,11 @@
 {
     "port": 2096,
     "censor": true,
-    "banwords" : [
+    "banlist" : [
         "hitler"
     ],
     "errors" : {
-        "message": "violation of the rule regarding the content of messages"
+        "message": "violation of the rule regarding the content of messages",
+        "ip": "you have been blacklisted and cannot acces the server"
     }
 }

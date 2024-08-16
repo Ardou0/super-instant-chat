@@ -13,14 +13,19 @@ wss.getUniqueID = function () {
 };
 
 // 'connection' event: triggered when a client connects
-wss.on('connection', function connection(ws) {
+wss.on('connection', function connection(ws, req) {
   ws.id = wss.getUniqueID();
+  ws.ip = req.socket.remoteAddress;
 
+  if(checkValidity(ws.ip) == true) {
+    sendError(ws, config.errors.ip);
+    ws.close();
+  }
   // 'message' event: triggered when the server receives a message from a client
   ws.on('message', function incoming(message) {
     let data = JSON.parse(message);
     if (data.type == "message") {
-      if (checkMessage(data.content) == false) {
+      if (checkValidity(data.content) == false) {
         sendMessage(data.content, ws.id);
       }
       else {
@@ -65,11 +70,11 @@ function sendError(client, type) {
   client.send(JSON.stringify(errorMessage));
 }
 
-function checkMessage(message) {
+function checkValidity(message) {
   if (config.censor === true) {
     let string = message.toLowerCase();
 
-    return config.banwords.some(word => {
+    return config.banlist.some(word => {
       // Improved regular expression to match words surrounded by non-alphanumeric characters
       let regex = new RegExp(`(?:^|[^a-zA-Z0-9])${word}(?:$|[^a-zA-Z0-9])`, 'i');
       return regex.test(string);
